@@ -7,8 +7,9 @@ locals {
   workspace = {
     "fem-eci-tfe"={
         description = "fem-eci-workspace"
-        execution_mode = "local"
+        execution_mode = "remote"
         project_id=module.project["fem-eci-project"].id
+        vcs_repo_identifier="shemaikuzwe/fem-eci-terraform-tfe"
     }
   }
 }
