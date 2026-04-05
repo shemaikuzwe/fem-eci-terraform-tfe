@@ -1,5 +1,5 @@
 module "project" {
-  for_each = local.projects
+  for_each = local.project
   source  = "ALT-F4-LLC/project/tfe"
   version = "0.4.0"
  
