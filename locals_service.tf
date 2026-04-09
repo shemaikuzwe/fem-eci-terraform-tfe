@@ -15,7 +15,7 @@ locals {
     },
 
     {
-      name     = "service-2"
+      name     = "service-test"
       language = "Go"
       parameters = [
         "fem-instructor",
