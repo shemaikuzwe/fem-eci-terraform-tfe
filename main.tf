@@ -16,7 +16,7 @@ module "workspace" {
   )
 
   source  = "ALT-F4-LLC/workspace/tfe"
-  version = "0.8.0"
+  version = "0.6.0"
 
   description       = each.value.description
   execution_mode    = each.value.execution_mode
@@ -31,8 +31,8 @@ module "workspace" {
   }
 }
 resource "tfe_run_trigger" "update_services" {
-  workspace_id  = module.workspace["fem-eci-tfe"].id
-  sourceable_id = module.workspace["fem-eci-product-service-prod"].id
+  workspace_id  = data.tfe_workspace.tfe.id
+  sourceable_id = data.tfe_workspace.product-service.id
 }
 moved {
   from = module.workspace["fem-eci-aws-cluster-prod"]
