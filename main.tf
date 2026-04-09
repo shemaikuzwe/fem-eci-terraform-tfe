@@ -30,7 +30,10 @@ module "workspace" {
     identifier                 = each.value.vcs_repo_identifier
   }
 }
-
+resource "tfe_run_trigger" "update_services" {
+  workspace_id  = data.tfe_workspace.tfe.id
+  sourceable_id = data.tfe_workspace.product-service.id
+}
 moved {
   from = module.workspace["fem-eci-aws-cluster-prod"]
   to   = module.workspace["fem-eci-test-aws-cluster-prod"]
