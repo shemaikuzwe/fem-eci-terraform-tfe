@@ -16,7 +16,7 @@ module "workspace" {
   )
 
   source  = "ALT-F4-LLC/workspace/tfe"
-  version = "0.6.0"
+  version = "0.8.0"
 
   description       = each.value.description
   execution_mode    = each.value.execution_mode
@@ -24,7 +24,7 @@ module "workspace" {
   organization_name = var.organization_name
   project_id        = each.value.project_id
   variables         = try(each.value.variables, [])
-
+  
   vcs_repo = {
     github_app_installation_id = data.tfe_github_app_installation.this.id
     identifier                 = each.value.vcs_repo_identifier
